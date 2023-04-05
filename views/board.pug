@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  p #{query.rows} and #{query.cols}
+  - let rows = Number(query.rows);
+  - let colum = Number(query.cols);
+  if !(Number.isInteger(rows) && Number.isInteger(colum))
+    p Integers as Rows and Coulmns
+  else if rows > 10 || rows < 1
+    p  Rows out of length
+  else if colum > 10 || colum < 1
+    p Coulmns out of length
+  else
+    table#outer
+    - for(let x =0;x< rows; x++){
+      tr#middle
+      <br>
+        - for(let y =0;y<colum;y++){
+          td= (x==y)? 1 : (y<x)?0:(y-x+1)
+          - }
+    - }
