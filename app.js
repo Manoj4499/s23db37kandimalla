@@ -25,6 +25,7 @@ var gunsRouter = require('./routes/guns');
 var boardRouter = require('./routes/board');
 var selectorRouter = require('./routes/selector')
 var guns = require("./models/guns");
+var resourceRouter = require('./routes/resource');
 var app = express();
 
 // view engine setup
@@ -43,6 +44,7 @@ app.use('/guns', gunsRouter);
 app.use('/board', boardRouter);
 app.use('/selector', selectorRouter);
 app.use('/guns', guns);
+app.use('/resource',resourceRouter);
 
 async function recreateDB(){
   // Delete everything
