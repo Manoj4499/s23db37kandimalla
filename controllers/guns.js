@@ -1,8 +1,15 @@
 var guns = require('../models/guns');
-// List of all gunss
-exports.guns_list = function(req, res) {
-res.send('NOT IMPLEMENTED: guns list');
-};
+// List of all Costumes
+exports.guns_list = async function(req, res) {
+    try{
+    guns = await guns.find();
+    res.send(guns);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
 // for a specific guns.
 exports.guns_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: guns detail: ' + req.params.id);
