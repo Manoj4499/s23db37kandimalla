@@ -26,3 +26,16 @@ res.send('NOT IMPLEMENTED: guns delete DELETE ' + req.params.id);
 exports.guns_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: guns update PUT' + req.params.id);
 };
+
+// VIEWS
+// Handle a show all view
+exports.guns_view_all_Page = async function(req, res) {
+    try{
+    theguns = await guns.find();
+    res.render('guns', { title: 'guns Search Results', results: theguns });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };

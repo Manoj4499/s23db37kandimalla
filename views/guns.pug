@@ -2,13 +2,13 @@ extends layout
 
 block content
   h1= title
-  - var results = guns;
+  - var guns = results;
   div(class="container_fluid")
-    each item,index in results
+    each item,index in guns
         div(class="row" onclick = `buy(${index})`)       
-            div(class="col-sm-2") #{item.gun_type}
-            div(class="col-sm-2") #{item.gun_name}
-            div(class="col-sm-2") #{item.gun_cost}
+            div(class="col-sm-2") #{item.guns_type}
+            div(class="col-sm-2") #{item.guns_name}
+            div(class="col-sm-2") #{item.guns_cost}
   script.
       function buy(indxnum){
         alert('You purchased item'+ indxnum)
