@@ -20,4 +20,5 @@ res.render('guns', { title: 'Search Results Gun',guns : [z1,z2,z3] });
 */
 router.get('/', guns_controlers.guns_view_all_Page );
 router.get('/detail', guns_controlers.guns_view_one_Page);
+router.get('/create', guns_controlers.guns_create_Page);
 module.exports = router;
