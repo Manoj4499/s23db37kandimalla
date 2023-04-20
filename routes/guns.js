@@ -22,4 +22,5 @@ router.get('/', guns_controlers.guns_view_all_Page );
 router.get('/detail', guns_controlers.guns_view_one_Page);
 router.get('/create', guns_controlers.guns_create_Page);
 router.get('/update', guns_controlers.guns_update_Page);
+router.get('/delete', guns_controlers.guns_delete_Page);
 module.exports = router;
