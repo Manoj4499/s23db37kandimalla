@@ -20,7 +20,6 @@ res.render('guns', { title: 'Search Results Gun',guns : [z1,z2,z3] });
 */
 router.get('/', guns_controlers.guns_view_all_Page );
 router.get('/detail', guns_controlers.guns_view_one_Page);
-router.get('/create', guns_controlers.guns_create_Page);
 // redirect to login.
 const secured = (req, res, next) => {
   if (req.user){
@@ -31,6 +30,7 @@ const secured = (req, res, next) => {
   }
   /* GET update guns page */
   router.get('/update', secured,guns_controlers.guns_update_Page);
+  router.get('/create',secured, guns_controlers.guns_create_Page);
   
-router.get('/delete', guns_controlers.guns_delete_Page);
+router.get('/delete',secured, guns_controlers.guns_delete_Page);
 module.exports = router;
