@@ -2,13 +2,19 @@ extends layout
 
 block content
   - let guns = results
+  - let destinationc = `dispatch(\"/guns/create\")`
+  button.btn( class="btn-primary ml-1", onclick= destinationc) Create
   h1= title
   div(class="container-fluid")
   div(class="row m-1")
     each gun in guns
       - let destination = `dispatch(\"/guns/update?id=${gun._id}\")`
+      - let destinationa = `dispatch(\"/guns/detail?id=${gun._id}\")`
+      - let destinationb = `dispatch(\"/guns/delete?id=${gun._id}\")`
       div(class="row-sm-2", class="m-1") Gun #{gun.guns_type}(#{gun.guns_name}) is #{gun.guns_cost} 
         button.btn( class="btn-primary ml-1", onclick= destination) Update
+        button.btn( class="btn-primary ml-1", onclick= destinationa) Detail
+        button.btn( class="btn-primary ml-1", onclick= destinationb) Delete
 
   script.
     function dispatch(path){
