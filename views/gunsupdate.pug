@@ -21,7 +21,7 @@ block content
     input#guns_name(type='String', name='guns_name', value= guns_name )
    div.form-group
     label.gunsAttr(for='guns_cost') guns cost
-    input#guns_cost(type='number', name='guns_cost', value= guns_cost )
+    input#guns_cost(type='number', name='guns_cost', value= guns_cost ,min=100,max=2000)
    input(type="submit")
   script.
    document.forms['gunsForm'].addEventListener('submit', (event) => {
